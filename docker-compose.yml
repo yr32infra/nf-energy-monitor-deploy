@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nfenergylogger:
+    image: ghcr.io/yanorei32/nf-energy-logger:latest@sha256:2fd5816647c58a7c4a78cfb6cf40e3f8077a05c18878e45c228edfe7e226102b
+    hostname: nfenergylogger
+    container_name: nfenergylogger__nfenergylogger
+    restart: unless-stopped
+
+    environment:
+      NF_HOST: 192.168.179.2
+      INFL_HOST: https://influxdb.yr32.net
+      INFL_TOKEN: ${INFL_TOKEN}
+      INFL_ORG: default
+      INFL_BUCKET: power
+
+    command: /usr/bin/nf-energy-logger run
+
+    deploy:
+      resources:
+        limits:
+          memory: 128m
+
+    networks:
+      - default
+
+networks:
+  default:
+    name: nfenergylogger__default
