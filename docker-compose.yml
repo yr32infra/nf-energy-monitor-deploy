@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   nfenergylogger:
-    image: ghcr.io/yanorei32/nf-energy-logger:latest@sha256:6bdf2105a510b3cc8278f7e7d60e54c6f8532ccd241e06d9b21cf19dd535a26e
+    image: ghcr.io/yanorei32/nf-energy-logger:latest@sha256:4787e5ad2c45bce14d6c69c30a9e4022576adc67e647908cf88affb44d2d80f2
     hostname: nfenergylogger
     container_name: nfenergylogger__nfenergylogger
     restart: unless-stopped
